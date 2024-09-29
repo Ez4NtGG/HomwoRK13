@@ -1,4 +1,3 @@
-# docker-compose  --env-file .env-prod  up -d 
 version: "3.8"
 name: web_hw13_app
 services:
@@ -6,8 +5,7 @@ services:
     image: redis:alpine
     expose:
       - "${REDIS_PORT}"
-    # ports:
-    #   - "${REDIS_PORT}:${REDIS_PORT}"
+
   pg:
     image: postgres
     environment:
@@ -16,8 +14,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     expose:
       - "${POSTGRES_PORT}"
-    # ports:
-    #   - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+
     volumes:
       - ./.postgres-data:/var/lib/postgresql/data
 
